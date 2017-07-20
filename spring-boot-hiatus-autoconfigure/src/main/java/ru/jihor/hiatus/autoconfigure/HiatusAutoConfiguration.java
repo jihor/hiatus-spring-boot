@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.jihor.hiatus.advice.MethodUnitOfWorkInterceptor;
+import ru.jihor.hiatus.bpp.HiatusBeanPostProcessor;
 import ru.jihor.hiatus.endpoints.HiatusEndpoint;
 import ru.jihor.hiatus.health.HiatusHealthIndicator;
 import ru.jihor.hiatus.ServiceStatus;
@@ -33,6 +35,18 @@ public class HiatusAutoConfiguration {
     @ConditionalOnMissingBean
     public UnitOfWorkCounter counter() {
         return new UnitOfWorkCounter();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MethodUnitOfWorkInterceptor methodUnitOfWorkInterceptor(UnitOfWorkCounter counter) {
+        return new MethodUnitOfWorkInterceptor(counter);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public HiatusBeanPostProcessor hiatusBeanPostProcessor(MethodUnitOfWorkInterceptor interceptor) {
+        return new HiatusBeanPostProcessor(interceptor);
     }
 
     @Bean

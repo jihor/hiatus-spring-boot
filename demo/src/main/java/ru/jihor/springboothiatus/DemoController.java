@@ -1,6 +1,11 @@
 package ru.jihor.springboothiatus;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import ru.jihor.hiatus.annotations.UnitOfWork;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author jihor (jihor@ya.ru)
@@ -8,5 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class DemoController {
-
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @UnitOfWork
+    public String doWork() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(5);
+        return "Done";
+    }
 }
