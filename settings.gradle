@@ -1,0 +1,5 @@
+include 'spring-boot-hiatus-autoconfigure'
+include 'spring-boot-hiatus-core'
+include 'spring-boot-starter-hiatus'
+include 'demo'
+

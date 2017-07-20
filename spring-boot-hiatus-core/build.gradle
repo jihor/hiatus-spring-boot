@@ -1,0 +1,6 @@
+dependencies {
+    compile "org.projectlombok:lombok"
+    compile "org.springframework:spring-context"
+    compile "org.springframework.boot:spring-boot-actuator"
+    compile "org.springframework:spring-web"
+}

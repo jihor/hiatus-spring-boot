@@ -1,0 +1,5 @@
+dependencies {
+    compile project(":spring-boot-starter-hiatus")
+    compile "org.springframework.boot:spring-boot-starter"
+    compile "org.springframework.boot:spring-boot-starter-web"
+}

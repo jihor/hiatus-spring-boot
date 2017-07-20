@@ -1,0 +1,34 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE'
+	}
+}
+
+version = '0.0.1-SNAPSHOT'
+
+subprojects {
+
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'java'
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom 'io.spring.platform:platform-bom:Brussels-SR3'
+//		mavenBom "org.springframework.cloud:spring-cloud-starter-parent:Camden.SR7"
+		}
+		dependencies {
+			dependency 'org.projectlombok:lombok:1.16.18'
+		}
+	}
+
+}

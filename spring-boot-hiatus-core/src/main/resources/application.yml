@@ -1,0 +1,12 @@
+endpoints:
+    hiatus:
+        enabled: true
+        sensitive: false
+    hiatus_on:
+        enabled: true
+        sensitive: false
+    hiatus_off:
+        enabled: true
+        sensitive: false
+
+management.security.enabled: false

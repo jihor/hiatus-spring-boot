@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ru.jihor.hiatus.autoconfigure.HiatusAutoConfiguration,\
+ru.jihor.hiatus.autoconfigure.HiatusMvcAutoConfiguration
