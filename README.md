@@ -65,7 +65,7 @@ The following REST API is available when using spring-boot-starter-hiatus:
 #### Java API
 ##### UnitOfWork annotation
 
-If this method-level annotation is present on a method, the counter of requests in processing will be incremented before the invocation this method and decremented after exit.
+If this method-level annotation is present on a method, the counter of requests in processing will be incremented before the method invocation and decremented after exit.
 
 Example:
 ```
