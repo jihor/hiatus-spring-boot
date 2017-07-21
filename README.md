@@ -5,8 +5,8 @@ A Spring Boot starter for a graceful work interruption or shutdown
 [![CircleCI](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master)
 
 #### What is Spring Boot Hiatus?
-**Spring Boot Hiatus** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing the in-flight requests to complete, and also provides a way to keep score of these requests. The basic use case is really simple:
-1. Tell the service instance to go on hiatus. If you are behind HAProxy / Nginx / any other decent load balancer or discovery server which checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing). 
+**Spring Boot Hiatus** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use case is really simple:
+1. Tell the service instance to go on hiatus. If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing). 
 2. Wait until the count of in-flight requests reaches zero. 
 3. Now the instance can be restarted with no requests in danger.
 
@@ -50,7 +50,7 @@ The following REST API is available when using spring-boot-starter-hiatus:
 * `/hiatus_off`, method = `POST` - go back to work
 
 	Returns:
-    - `true` if the service is will resume work as result of this request, `false` if it's already working normally
+    - `true` if the service is resuming work as result of this request, `false` if it's already working normally
       
 * `/hiatus`, method = `GET` - the health indicator which provides the information on the service state and the count of requests in processing 
 
@@ -134,7 +134,7 @@ HTTP/1.1 503
 8. curl the `/hiatus` endpoint again and see. Now it also returns code 503:
 ```
 $ curl -i http://127.0.0.1:8080/hiatus
-HTTP/1.1 200 
+HTTP/1.1 503 
 ...
-{"paused":false,"count":3}
+{"paused":true,"count":3}
 ```
