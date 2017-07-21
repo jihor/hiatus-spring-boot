@@ -81,7 +81,7 @@ public class DemoController {
 ```
 
 ### Demo project
-1. Download the demo project and start `DemoApplication`.
+1. Clone the repo and start `DemoApplication`.
 2. curl the `/health` endpoint
 ```
 $ curl -i http://127.0.0.1:8080/health
