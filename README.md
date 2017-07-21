@@ -131,7 +131,7 @@ HTTP/1.1 503
 ...
 {"status":"OUT_OF_SERVICE","diskSpace":{"status":"UP","total":999,"free":997,"threshold":1},"hiatus":{"status":"OUT_OF_SERVICE","paused":true,"count":3}}
 ``` 
-8. curl the `/hiatus` endpoint again and see. Now it also returns code 503:
+8. curl the `/hiatus` endpoint again. Now it also returns code 503:
 ```
 $ curl -i http://127.0.0.1:8080/hiatus
 HTTP/1.1 503 
