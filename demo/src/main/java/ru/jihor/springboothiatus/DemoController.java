@@ -16,7 +16,7 @@ public class DemoController {
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @UnitOfWork
     public String doWork() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5);
+        TimeUnit.SECONDS.sleep(30);
         return "Done";
     }
 }
