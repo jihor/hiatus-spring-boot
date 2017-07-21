@@ -1,5 +1,5 @@
 # Spring Boot Hiatus
-A Spring Boot starter for a graceful work interruption or shutdown 
+A Spring Boot starter for graceful work interruption or shutdown 
 
 [ ![Download](https://api.bintray.com/packages/jihor/maven/spring-boot-hiatus/images/download.svg) ](https://bintray.com/jihor/maven/spring-boot-hiatus/_latestVersion)
 [![CircleCI](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master)
@@ -11,7 +11,7 @@ A Spring Boot starter for a graceful work interruption or shutdown
 3. Now the instance can be restarted with no requests in danger.
 
 #### Spring Boot already has `/shutdown`, why not use it?
-`/shutdown` destroys the whole Spring context, which leads to failed requests. The goal of this starter is to allow such operations without interfering with the application context, relying on load balancing only.
+`/shutdown` destroys the whole Spring context, leading to failed requests. The goal of this starter is to allow such operations without interfering with the application context, relying on load balancing only.
 
 
 ### Download
