@@ -1,8 +1,12 @@
 package ru.jihor.hiatus.endpoints.mvc;
 
 import org.springframework.boot.actuate.endpoint.mvc.AbstractEndpointMvcAdapter;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import ru.jihor.hiatus.annotations.ActuatorGetMapping;
 import ru.jihor.hiatus.endpoints.HiatusEndpoint;
+
+import java.util.Map;
 
 /**
  * @author jihor (jihor@ya.ru)
@@ -16,13 +20,8 @@ public class HiatusMvcEndpoint extends AbstractEndpointMvcAdapter<HiatusEndpoint
     @Override
     @ActuatorGetMapping
     protected Object invoke() {
-        return getDelegate().invoke();
-//        if (!getDelegate().isEnabled()) {
-//            // Shouldn't happen because the request mapping should not be registered
-//            return getDisabledResponse();
-//        }
-//        Map<String, Object> endpointProps = this.getDelegate().invoke();
-//        HttpStatus status = this.getDelegate().isPaused() ? HttpStatus.SERVICE_UNAVAILABLE : HttpStatus.OK;
-//        return new ResponseEntity<>(endpointProps, status);
+        Map<String, Object> endpointProps = this.getDelegate().invoke();
+        HttpStatus status = this.getDelegate().isPaused() ? HttpStatus.SERVICE_UNAVAILABLE : HttpStatus.OK;
+        return new ResponseEntity<>(endpointProps, status);
     }
 }
