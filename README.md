@@ -1,5 +1,5 @@
 # Spring Boot Hiatus
-A Spring Boot starter to for a graceful work interruption or shutdown 
+A Spring Boot starter for a graceful work interruption or shutdown 
 
 [ ![Download](https://api.bintray.com/packages/jihor/maven/spring-boot-hiatus/images/download.svg) ](https://bintray.com/jihor/maven/spring-boot-hiatus/_latestVersion)
 [![CircleCI](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master)
