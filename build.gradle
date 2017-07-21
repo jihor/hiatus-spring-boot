@@ -4,16 +4,19 @@ buildscript {
 	}
 	dependencies {
 		classpath 'io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE'
+		classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
 	}
 }
 
-version = '0.0.1-SNAPSHOT'
+group "ru.jihor.spring-boot-hiatus"
+version "0.1.0"
 
 subprojects {
-
 	apply plugin: 'io.spring.dependency-management'
 	apply plugin: 'java'
 
+	group rootProject.group
+	version rootProject.version
 	sourceCompatibility = 1.8
 	targetCompatibility = 1.8
 
@@ -31,4 +34,43 @@ subprojects {
 		}
 	}
 
+	if (project.name != 'demo') {
+		apply plugin: 'maven-publish'
+		apply plugin: 'com.jfrog.bintray'
+
+		task sourcesJar(type: Jar) {
+			from sourceSets.main.allJava
+		}
+
+		publishing {
+			publications {
+				toMaven(MavenPublication) {
+					groupId project.group
+					artifactId project.name
+					version project.version
+					from components.java
+
+					artifact sourcesJar {
+						classifier "sources"
+					}
+				}
+			}
+		}
+
+		bintray {
+			user = project.hasProperty("user") ? project.property("user") : "fake"
+			key = project.hasProperty("key") ? project.property("key") : "fake"
+
+			publications = ['toMaven']
+			publish = true
+
+			pkg {
+				repo = 'maven'
+				name = rootProject.name
+				licenses = ['Apache-2.0']
+				vcsUrl = 'https://github.com/jihor/spring-boot-hiatus.git'
+			}
+		}
+
+	}
 }
