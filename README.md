@@ -96,14 +96,7 @@ HTTP/1.1 200
 ...
 {"paused":false,"count":0}
 ```
-4. curl the `/hiatus` endpoint
-```
-$ curl -i http://127.0.0.1:8080/hiatus
-HTTP/1.1 200 
-...
-{"paused":false,"count":0}
-```
-5. curl the `/test` endpoint a couple times without waiting for them to return 
+4. curl the `/test` endpoint a couple times without waiting for them to return 
 ```
 $ curl -i http://127.0.0.1:8080/test > /dev/null 2>&1 &
 [4] 21112
@@ -112,7 +105,7 @@ $ curl -i http://127.0.0.1:8080/test > /dev/null 2>&1 &
 $ curl -i http://127.0.0.1:8080/test > /dev/null 2>&1 &
 [6] 21116
 ```
-6. curl the `/hiatus` endpoint again and see in-flight requests:
+5. curl the `/hiatus` endpoint again and see in-flight requests:
 ```
 $ curl -i http://127.0.0.1:8080/hiatus
 HTTP/1.1 200 
