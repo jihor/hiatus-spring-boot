@@ -1,4 +1,4 @@
-package ru.jihor.springboothiatus;
+package ru.jihor.hiatus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

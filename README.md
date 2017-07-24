@@ -1,10 +1,10 @@
-# Spring Boot Hiatus
+# Hiatus for Spring Boot
 A Spring Boot starter for graceful work interruption or shutdown 
 
-[ ![Download](https://api.bintray.com/packages/jihor/maven/spring-boot-hiatus/images/download.svg) ](https://bintray.com/jihor/maven/spring-boot-hiatus/_latestVersion)
-[![CircleCI](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/spring-boot-hiatus/tree/master)
+[ ![Download](https://api.bintray.com/packages/jihor/maven/hiatus-spring-boot/images/download.svg) ](https://bintray.com/jihor/maven/hiatus-spring-boot/_latestVersion)
+[![CircleCI](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master)
 
-#### What is Spring Boot Hiatus?
+#### What is Hiatus for Spring Boot ?
 **Spring Boot Hiatus** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use case is really simple:
 1. Tell the service instance to go on hiatus. If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing). 
 2. Wait until the count of in-flight requests reaches zero. 
@@ -22,16 +22,16 @@ repositories {
 }
 
 dependencies {
-    compile group: 'ru.jihor.spring-boot-hiatus', name: 'spring-boot-starter-hiatus', version: '<version>'
+    compile group: 'ru.jihor.hiatus-spring-boot', name: 'hiatus-spring-boot-starter', version: '<version>'
     // or
-    // compile 'ru.jihor.spring-boot-hiatus:spring-boot-starter-hiatus:<version>'
+    // compile 'ru.jihor.hiatus-spring-boot:hiatus-spring-boot-starter:<version>'
 }
 ```
 ##### Maven
 ```
 <dependency>
-    <groupId>ru.jihor.spring-boot-hiatus</groupId>
-    <artifactId>spring-boot-starter-hiatus</artifactId>
+    <groupId>ru.jihor.hiatus-spring-boot</groupId>
+    <artifactId>hiatus-spring-boot-starter</artifactId>
     <version>(version)</version>
     <type>pom</type>
 </dependency>
@@ -40,7 +40,7 @@ dependencies {
 ### API Description
 #### REST API
 
-The following REST API is available when using spring-boot-starter-hiatus:
+The following REST API is available when using hiatus-spring-boot-starter:
 
 * `/hiatus_on`, method = `POST` - go on hiatus
  

@@ -8,8 +8,8 @@ buildscript {
 	}
 }
 
-group "ru.jihor.spring-boot-hiatus"
-version "0.1.3-SNAPSHOT"
+group "ru.jihor.hiatus-spring-boot"
+version "0.1.3"
 
 subprojects {
 	apply plugin: 'io.spring.dependency-management'
@@ -68,7 +68,7 @@ subprojects {
 				repo = 'maven'
 				name = rootProject.name
 				licenses = ['Apache-2.0']
-				vcsUrl = 'https://github.com/jihor/spring-boot-hiatus.git'
+				vcsUrl = 'https://github.com/jihor/hiatus-spring-boot.git'
 			}
 		}
 

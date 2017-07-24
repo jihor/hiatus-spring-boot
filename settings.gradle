@@ -1,7 +1,7 @@
-rootProject.name = "spring-boot-hiatus"
+rootProject.name = "hiatus-spring-boot"
 
-include 'spring-boot-hiatus-autoconfigure'
-include 'spring-boot-hiatus-core'
-include 'spring-boot-starter-hiatus'
+include 'hiatus-spring-boot-autoconfigure'
+include 'hiatus-spring-boot-core'
+include 'hiatus-spring-boot-starter'
 include 'demo'
 

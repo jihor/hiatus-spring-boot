@@ -1,4 +1,4 @@
-package ru.jihor.springboothiatus;
+package ru.jihor.hiatus;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
