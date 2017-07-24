@@ -5,7 +5,9 @@ import org.aopalliance.intercept.MethodInvocation;
 import ru.jihor.hiatus.UnitOfWorkCounter;
 
 /**
- * @author jihor (dmitriy_zhikharev@rgs.ru)
+ * Interceptor for keeping track of units of work in processing
+ *
+ * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */
 public class MethodUnitOfWorkInterceptor implements MethodInterceptor {

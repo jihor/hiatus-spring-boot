@@ -9,7 +9,9 @@ import ru.jihor.hiatus.annotations.UnitOfWork;
 import ru.jihor.hiatus.advice.MethodUnitOfWorkInterceptor;
 
 /**
- * @author jihor (dmitriy_zhikharev@rgs.ru)
+ * BPP to advise execution of methods annotated with {@link ru.jihor.hiatus.annotations.UnitOfWork}
+ *
+ * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */
 public class HiatusBeanPostProcessor extends AbstractAdvisingBeanPostProcessor implements InitializingBean {

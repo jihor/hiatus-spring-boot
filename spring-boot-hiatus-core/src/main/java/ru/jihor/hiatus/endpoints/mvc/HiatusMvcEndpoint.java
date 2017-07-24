@@ -9,6 +9,8 @@ import ru.jihor.hiatus.endpoints.HiatusEndpoint;
 import java.util.Map;
 
 /**
+ * MVC Endpoint for returning the basic info
+ *
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */

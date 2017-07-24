@@ -3,6 +3,8 @@ package ru.jihor.hiatus;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
+ * Class for storing the service status. 'Paused' = 'on hiatus'
+ *
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */

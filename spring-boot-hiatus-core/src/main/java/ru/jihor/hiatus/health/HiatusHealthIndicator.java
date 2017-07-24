@@ -5,6 +5,8 @@ import org.springframework.boot.actuate.health.Health;
 import ru.jihor.hiatus.endpoints.HiatusEndpoint;
 
 /**
+ * Health indicator. This indicator is included in overall health check and will return 'OUT OF SERVICE' status if the service is gone on hiatus.
+ *
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */

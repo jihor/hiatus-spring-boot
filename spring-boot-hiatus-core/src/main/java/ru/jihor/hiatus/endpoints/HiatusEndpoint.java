@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Basic endpoint for providing information and changing status
+ *
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */

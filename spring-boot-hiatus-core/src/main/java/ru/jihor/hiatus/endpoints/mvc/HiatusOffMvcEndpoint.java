@@ -5,6 +5,8 @@ import ru.jihor.hiatus.annotations.ActuatorPostMapping;
 import ru.jihor.hiatus.endpoints.HiatusEndpoint;
 
 /**
+ * MVC endpoint for requesting the service to go back to work
+ *
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */
