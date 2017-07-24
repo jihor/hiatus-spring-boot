@@ -5,7 +5,7 @@ A Spring Boot starter for graceful work interruption or shutdown
 [![CircleCI](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master)
 
 #### What is Hiatus for Spring Boot ?
-**Spring Boot Hiatus** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use case is really simple:
+**Hiatus for Spring Boot ** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use case is really simple:
 1. Tell the service instance to go on hiatus. If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing). 
 2. Wait until the count of in-flight requests reaches zero. 
 3. Now the instance can be restarted with no requests in danger.
