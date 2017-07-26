@@ -19,7 +19,6 @@ A Spring Boot starter for graceful work interruption or shutdown
 ```
 repositories {
     jcenter()
-    // or maven { url "https://dl.bintray.com/jihor/maven/" }
 }
 
 dependencies {
