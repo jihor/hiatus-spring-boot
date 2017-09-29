@@ -5,10 +5,16 @@ A Spring Boot starter for graceful work interruption or shutdown
 [![CircleCI](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master.svg?style=shield)](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master)
 
 #### What is Hiatus for Spring Boot ?
-**Hiatus for Spring Boot** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use case is really simple:
-1. Tell the service instance to go on hiatus. If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing). 
+**Hiatus for Spring Boot** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use cases are as follows:
+
+**A. Graceful shutdown **
+1. Tell the service instance to go on hiatus (invoke `/hiatus_on`). If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing). 
 2. Wait until the count of in-flight requests reaches zero. 
 3. Now the instance can be restarted with no requests in danger.
+
+**B. Hiatus **
+1. Same as in (A)
+2. When it's time to put the service back to work, invoke `/hiatus_off`. Service will then be taken back to load balancing
 
 #### Spring Boot already has `/shutdown`, why not use it?
 `/shutdown` destroys the whole Spring context, leading to failed requests. The goal of this starter is to allow such operations without interfering with the application context, relying on load balancing only.
