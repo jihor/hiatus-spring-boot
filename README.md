@@ -3,6 +3,7 @@ A Spring Boot 2 starter for graceful work interruption or shutdown.
 
 [ ![Download](https://api.bintray.com/packages/jihor/maven/hiatus-spring-boot/images/download.svg) ](https://bintray.com/jihor/maven/hiatus-spring-boot/_latestVersion)
 [ ![CircleCI](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master.svg?style=shield) ](https://circleci.com/gh/jihor/hiatus-spring-boot/tree/master)
+
 Current version is written for Spring Boot 2.
 Older versions of this starter (0.x and 1.0) are written for Spring Boot 1.x and have different paths, see previous readme versions.
 
