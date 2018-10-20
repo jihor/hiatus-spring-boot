@@ -1,3 +1,6 @@
 dependencies {
     compile project(":hiatus-spring-boot-core")
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.springframework.boot:spring-boot-actuator-autoconfigure"
+    annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor"
 }

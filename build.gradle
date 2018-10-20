@@ -3,8 +3,8 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		classpath 'io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE'
-		classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
+		classpath 'io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE'
+		classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4"
 	}
 }
 
@@ -26,11 +26,10 @@ subprojects {
 
 	dependencyManagement {
 		imports {
-			mavenBom 'io.spring.platform:platform-bom:Brussels-SR3'
-//		mavenBom "org.springframework.cloud:spring-cloud-starter-parent:Camden.SR7"
+			mavenBom 'org.springframework.boot:spring-boot-dependencies:2.0.6.RELEASE'
 		}
 		dependencies {
-			dependency 'org.projectlombok:lombok:1.16.18'
+			dependency 'org.projectlombok:lombok:1.18.2'
 		}
 	}
 

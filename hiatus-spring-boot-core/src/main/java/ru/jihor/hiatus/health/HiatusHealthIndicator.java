@@ -1,5 +1,6 @@
 package ru.jihor.hiatus.health;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.actuate.health.AbstractHealthIndicator;
 import org.springframework.boot.actuate.health.Health;
 import ru.jihor.hiatus.endpoints.HiatusEndpoint;
@@ -10,16 +11,13 @@ import ru.jihor.hiatus.endpoints.HiatusEndpoint;
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */
+@RequiredArgsConstructor
 public class HiatusHealthIndicator extends AbstractHealthIndicator {
 
     private final HiatusEndpoint hiatusEndpoint;
 
-    public HiatusHealthIndicator(HiatusEndpoint hiatusEndpoint) {
-        this.hiatusEndpoint = hiatusEndpoint;
-    }
-
     @Override
-    protected void doHealthCheck(Health.Builder builder) throws Exception {
+    protected void doHealthCheck(Health.Builder builder) {
         if (hiatusEndpoint.isPaused()) {
             builder.outOfService();
         } else {

@@ -3,7 +3,7 @@ package ru.jihor.hiatus;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Class for keeping count of units of work
+ * Class for keeping count of work units
  *
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20

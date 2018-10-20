@@ -1,8 +1,11 @@
 package ru.jihor.hiatus.endpoints;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.actuate.endpoint.AbstractEndpoint;
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
+import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import ru.jihor.hiatus.ServiceStatus;
@@ -18,7 +21,9 @@ import java.util.Map;
  * @author jihor (jihor@ya.ru)
  *         Created on 2017-07-20
  */
-public class HiatusEndpoint extends AbstractEndpoint<Map<String, Object>> implements ApplicationContextAware {
+@Endpoint(id = "hiatus")
+@RequiredArgsConstructor
+public class HiatusEndpoint implements ApplicationContextAware {
 
     private final ServiceStatus serviceStatus;
     private final UnitOfWorkCounter counter;
@@ -30,15 +35,9 @@ public class HiatusEndpoint extends AbstractEndpoint<Map<String, Object>> implem
     private final HiatusOffEndpoint hiatusOffEndpoint = new HiatusOffEndpoint();
 
     public static final String FIELD_NAME_PAUSED = "paused";
-    public static final String  FIELD_NAME_COUNT = "count";
+    public static final String FIELD_NAME_COUNT = "count";
 
-    public HiatusEndpoint(ServiceStatus serviceStatus, UnitOfWorkCounter counter) {
-        super("hiatus", false, true);
-        this.serviceStatus = serviceStatus;
-        this.counter = counter;
-    }
-
-    @Override
+    @ReadOperation
     public Map<String, Object> invoke() {
         Map<String, Object> map = new HashMap<>();
         map.put(FIELD_NAME_PAUSED, isPaused());
@@ -55,29 +54,21 @@ public class HiatusEndpoint extends AbstractEndpoint<Map<String, Object>> implem
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {}
 
-    }
+    @Endpoint(id = "hiatus-on")
+    public class HiatusOnEndpoint {
 
-    public class HiatusOnEndpoint extends AbstractEndpoint<Boolean> {
-
-        public HiatusOnEndpoint() {
-            super("hiatus_on", true, true);
-        }
-
-        @Override
+        @WriteOperation
         public Boolean invoke() {
             return serviceStatus.pause();
         }
     }
 
-    public class HiatusOffEndpoint extends AbstractEndpoint<Boolean> {
+    @Endpoint(id = "hiatus-off")
+    public class HiatusOffEndpoint {
 
-        public HiatusOffEndpoint() {
-            super("hiatus_off", true, true);
-        }
-
-        @Override
+        @WriteOperation
         public Boolean invoke() {
             return serviceStatus.unpause();
         }

@@ -1,0 +1,10 @@
+# see https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-health
+management.endpoint.health.show-details: always
+
+management.endpoints.web.exposure.include: info, health, metrics, hiatus, hiatus-on, hiatus-off
+# or
+# management.endpoints.web.exposure.include: "*"
+#
+# to disable, use
+# management.endpoint.hiatus.enabled: false
+
