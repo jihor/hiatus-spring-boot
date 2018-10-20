@@ -11,7 +11,7 @@ Older versions of this starter (0.x and 1.0) are written for Spring Boot 1.x and
 **Hiatus for Spring Boot** is a starter that allows a Spring Boot application to... go on hiatus :) i.e. return an 'OUT OF SERVICE' result in respond to a health check, while allowing in-flight requests to complete, and also provides a way to keep score of these requests. The basic use cases are as follows:
 
 __A. Graceful shutdown__
-1. Tell the service instance to go on hiatus (invoke `/actuator/hiatus-on`). If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing).
+1. Tell the service instance to go on hiatus (invoke `/actuator/hiatus-on`). If you are behind HAProxy / Nginx / any other decent load balancer or discovery server that checks your `/actuator/health` endpoint, this means the load balancer will cease sending new requests to this service (or the discovery server will mark this instance as "down". Anyway, the instance will be taken out of load balancing).
 2. Wait until the count of in-flight requests reaches zero. 
 3. Now the instance can be restarted with no requests in danger.
 
@@ -121,7 +121,7 @@ HTTP/1.1 200
 ...
 {"paused":false,"count":3}
 ```
-6. curl the `/actuator/hiatus_on` endpoint with a POST:
+6. curl the `/actuator/hiatus-on` endpoint with a POST:
 ```
 $ curl -X POST http://127.0.0.1:8080/actuator/hiatus-on
 true
