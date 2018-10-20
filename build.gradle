@@ -9,7 +9,7 @@ buildscript {
 }
 
 group "ru.jihor.hiatus-spring-boot"
-version "2.0.0-SNAPSHOT"
+version "2.0.0"
 
 subprojects {
 	apply plugin: 'io.spring.dependency-management'
