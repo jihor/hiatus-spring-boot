@@ -8,6 +8,8 @@ import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import ru.jihor.hiatus.ServiceStatus;
 import ru.jihor.hiatus.UnitOfWorkCounter;
 
@@ -38,11 +40,14 @@ public class HiatusEndpoint implements ApplicationContextAware {
     public static final String FIELD_NAME_COUNT = "count";
 
     @ReadOperation
-    public Map<String, Object> invoke() {
+    public Object invoke() {
         Map<String, Object> map = new HashMap<>();
         map.put(FIELD_NAME_PAUSED, isPaused());
         map.put(FIELD_NAME_COUNT, getCount());
-        return Collections.unmodifiableMap(map);
+
+        HttpStatus status = isPaused() ? HttpStatus.SERVICE_UNAVAILABLE : HttpStatus.OK;
+
+        return new ResponseEntity<>(Collections.unmodifiableMap(map), status);
     }
 
     public boolean isPaused() {
