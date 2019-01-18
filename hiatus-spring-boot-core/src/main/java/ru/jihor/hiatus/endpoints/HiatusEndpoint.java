@@ -40,7 +40,7 @@ public class HiatusEndpoint implements ApplicationContextAware {
     public static final String FIELD_NAME_COUNT = "count";
 
     @ReadOperation
-    public Object invoke() {
+    public ResponseEntity<Map<String, Object>> invoke() {
         Map<String, Object> map = new HashMap<>();
         map.put(FIELD_NAME_PAUSED, isPaused());
         map.put(FIELD_NAME_COUNT, getCount());
